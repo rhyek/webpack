@@ -3,10 +3,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+const initializers = require.context('./initializers', true, /\.js$/){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+initializers.keys().forEach(initializers){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  router
+}).$mount('#app'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}

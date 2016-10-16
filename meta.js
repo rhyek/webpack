@@ -73,6 +73,12 @@ module.exports = {
     "e2e": {
       "type": "confirm",
       "message": "Setup e2e tests with Nightwatch?"
+    },
+    "buildPath": {
+      "type": "string",
+      "required": true,
+      "message": "Build path",
+      "default": "../../api/API/vue"
     }
   },
   "filters": {
